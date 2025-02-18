@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you:
+# If you need help with YAML syntax, here are some quick references for you: 
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -18,42 +18,37 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: burninrubber0's blog
-email: burninrubber0@gmail.com
+title: Hyrtsi codes
+email: eljas.hyyrynen@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A little blog for my little adventures.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: burninrubber0
-github_username:  burninrubber0
-
-# Build settings
-#theme: minima
-remote-theme: jekyll/minima
-
+  A personal blog about programming and bicycling
+baseurl: ""
+url: "https://burninrubber0.github.io"
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      author: "Eljas Hyyrynen"
+remote_theme: jekyll/minima
 minima:
   skin: dark
-
+  social_links:
+    - { platform: github, user_url: "https://github.com/hyrtsi" }
+    - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/12871003/eljas-hyyrynen"}
+    - { platform: instagram, user_url: "https://instagram.com/hyrtsimyrtsi/"}
+    - { platform: linkedin, user_url: "https://linkedin.com/in/eljashyyrynen"}
+  google_analytics: G-T7LR95T6F9
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  - jekyll-seo-tag
+header_pages:
+  - about.markdown
+  - bicycling.md
+  - tags.md
+  - links.md
+disqus:
+  shortname: hyrtsi
+exclude:
+  - Gemfile.lock
