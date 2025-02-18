@@ -18,37 +18,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Hyrtsi codes
-email: eljas.hyyrynen@gmail.com
+title: burninrubber0's blog
+email: burninrubber0@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A personal blog about programming and bicycling
+  A little blog for my little adventures.
 baseurl: ""
 url: "https://burninrubber0.github.io"
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      author: "Eljas Hyyrynen"
 remote_theme: jekyll/minima
 minima:
   skin: dark
   social_links:
-    - { platform: github, user_url: "https://github.com/hyrtsi" }
-    - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/12871003/eljas-hyyrynen"}
-    - { platform: instagram, user_url: "https://instagram.com/hyrtsimyrtsi/"}
-    - { platform: linkedin, user_url: "https://linkedin.com/in/eljashyyrynen"}
-  google_analytics: G-T7LR95T6F9
+    - { platform: github, user_url: "https://github.com/burninrubber0" }
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-  - jekyll-seo-tag
-header_pages:
-  - about.markdown
-  - bicycling.md
-  - tags.md
-  - links.md
-disqus:
-  shortname: hyrtsi
 exclude:
   - Gemfile.lock
