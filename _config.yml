@@ -24,12 +24,19 @@ description: >- # this means to ignore newlines until "baseurl:"
   A little blog for my little adventures.
 baseurl: ""
 url: "https://burninrubber0.github.io"
-github_username:  burninrubber0
 remote_theme: jekyll/minima
 minima:
   skin: dark
-#  social_links:
-#    - { platform: github, user_url: "https://github.com/burninrubber0" }
+  social_links:
+    - title: burninrubber0 at GitHub
+      icon: github
+      url: "https://github.com/burninrubber0
+    - title: burninrubber0 at Bluesky
+      icon: bluesky
+      url: "https://burninrubber0.bsky.social"
+    - title: burninrubber0 at YouTube
+      icon: youtube
+      url: "https://youtube.com/burninrubber0"
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
