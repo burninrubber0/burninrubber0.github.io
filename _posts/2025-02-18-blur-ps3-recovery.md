@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Recovering Deleted PS3 Executables: Blur Edition"
-date:   2025-02-18 17:43:00 -0500
+date:   2025-02-19 05:54:00 -0500
 author: burninrubber0
 categories: recovery
 ---
@@ -19,6 +19,7 @@ Looking through the search results for both SELF and ELF headers and filtering b
 936 of the 988 hits for 2009 are from the one map file still remaining on the drive. The remaining 52 are mostly false positives, filesystem-related paths, and results from the already-recovered 2009-12-15 build, but there are a few unknown sections like these:
 
 ![2009 result 1](/images/blur/2009_result_1.png)
+
 ![2009 result 2](/images/blur/2009_result_2.png)
 
 Despite their build dates and such making it seem like they're from an executable at first glance, it turns out they're actually the level assets, and all other levels contain a similar plaintext date of creation. This is quite unusual in my experience; normally a FILETIME or time_t would be stored instead. At least this could be useful in asset recovery, but that's not the focus here.
@@ -94,7 +95,7 @@ After some trial and error, I got it working and even discovered that the missin
 
 I was only able to get it to assert, but people in the Blur community ran it fine. Either way, the executable is clearly working perfectly, because if it wasn't it would've died instantly rather than display anything. I know this because I messed it up a couple times and that's what it did.
 
-In any case, the recovered executable is available here: https://mega.nz/file/dMNhUBZB#ZLkTbtGMeIFYqN4dChwUtQsM82t8gM_GvQcTPwMrgv8
+In any case, the recovered executable is available [here](https://mega.nz/file/dMNhUBZB#ZLkTbtGMeIFYqN4dChwUtQsM82t8gM_GvQcTPwMrgv8).
 
 There's more that wasn't discussed here but it's already long enough. I'll likely be putting this newfound knowledge and experience to use on recovering Burnout executables, to the extent it's possible.
 
