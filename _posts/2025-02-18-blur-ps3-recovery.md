@@ -27,7 +27,9 @@ Despite their build dates and such making it seem like they're from an executabl
 Moving on to 2010, the result count of 260 matches is skewed by symbols and level files again, but this time there's something else:
 
 ![2010 result 1](/images/blur/2010_result_1.png)
+
 ![2010 result 2](/images/blur/2010_result_2.png)
+
 ![2010 result 3](/images/blur/2010_result_3.png)
 
 Alright, so there were 2010-03-13 and 2010-03-17 builds on here at one point. Not that different from the already-recovered 2010-03-19 build, but anything potential builds are worth trying for. It looks like only the 2010-03-17 data still exists, and since there's only one instance of it it's pretty much guaranteed that this drive contains either one or zero potentially recoverable executables. Now it's time to find out whether this data matches the SELF header from earlier.
