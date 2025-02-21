@@ -122,7 +122,7 @@ The executable was recreated from the following data:
 | 0x20000 | 0x10000 | Rebuilt |
 | 0x30000 | 0x8000 | 0x40A2F2000 |
 | 0x38000 | 0x10000 | Rebuilt |
-| 0x48000 | 0x1FE8000 | 4149AE000 |
+| 0x48000 | 0x1FE8000 | 0x4149AE000 |
 
 Which produced:
 
@@ -136,6 +136,6 @@ I was only able to get it to assert, but people in the Blur community ran it fin
 
 In any case, the recovered executable is available [here](https://mega.nz/file/dMNhUBZB#ZLkTbtGMeIFYqN4dChwUtQsM82t8gM_GvQcTPwMrgv8).
 
-There's more that wasn't discussed here but this post is already long enough. I'll likely be putting this newfound knowledge and experience to use on recovering further Burnout Paradise executables, to the extent that it's possible. Also, it's my understanding that the `.opd` section contains the location of r2 for each function it lists, so perhaps that could have been used in the instruction-modifying tool but unfortunately I wasn't able to find a way to correlate the changes listed in the generated map to the OPD changes. An idea for another time, perhaps.
+There's more that wasn't discussed here but this post is already long enough. I'll likely be putting this newfound knowledge and experience to use on recovering further Burnout Paradise executables, to the extent that it's possible. Also, it's my understanding that the `.opd` section contains the location of r2 for each function it lists, so perhaps that could have been used in the instruction-modifying tool but unfortunately I wasn't able to find a way to correlate the changes listed in the generated map to the `.opd` changes. An idea for another time, perhaps.
 
 If anyone actually read this, I hope you found it interesting, or at least liked the end result. Follow me on Bluesky and stuff.
