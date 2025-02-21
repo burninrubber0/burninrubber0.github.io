@@ -115,7 +115,9 @@ After some trial and error, I got it working and even discovered that the missin
 
 ![Blur asserts](/images/blur/blur_assert.png)
 
-![Blur running](/images/blur/blur_running.png)
+| ![Blur running](/images/blur/blur_running.png) |
+| --- |
+| *Image credit: redlinesnative* |
 
 I was only able to get it to assert, but people in the Blur community ran it fine. Either way, the executable is clearly working perfectly, because if it wasn't it would've died instantly rather than display anything. I know this because I messed it up a couple times and that's what it did.
 
