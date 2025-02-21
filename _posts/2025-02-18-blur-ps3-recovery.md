@@ -114,6 +114,7 @@ After some trial and error, I got it working and even discovered that the missin
 # End result
 
 The executable was recreated from the following data:
+
 | File offset | Length (bytes) | Disk offset |
 | --- | --- | --- |
 | 0x0 | 0x1C000 | 0x40624A000 |
