@@ -72,7 +72,7 @@ In February 2025, I returned to work on 3/17 recovery. I managed to forget about
 
 Thanks to the earlier mapping of executable starts, where the start of the 3/19 `amax_master.self` limited the fragment size, I realized the fragment was either mostly or entirely complete and at first appeared to be one block with a size of 0x200C000. This includes the build date and configuration from earlier, further confirming it. Only problem is, adding the two fragments results in a size of 0x2028000. This on its own isn't suspect, but from prior experience I knew PS3 files like to be in blocks of length 0x2030000; in other words, this block's missing 0x8000. It'd be highly unusual for this to occur on its own, so I figured it probably went along with a missing 0x20000 fragment somewhere.
 
-Just to confirm my suspicions, I checked the segment extended headers and compared size of the first segment with the actual size of the recovered segment. Sure enough, it was supposed to be 0xFD5978 long but was 0xFCD978 instead, a difference of 0x8000.
+Just to confirm my suspicions, I checked the segment extended headers and compared the size of the first segment with the actual size of the recovered segment. Sure enough, it was supposed to be 0xFD5978 long but was 0xFCD978 instead, a difference of 0x8000.
 
 In the end, I had to figure out a way to know the function locations in 3/17 without having an intact executable so I could compare those locations with what was actually in the file. And luckily, there was a way.
 
@@ -84,7 +84,7 @@ In builds like these, the `.opd` (official procedure descriptors) section isn't 
 
 By comparing these function locations with analyses of both the 3/19 executable and the broken 3/17 executable in Ghidra, I was able to determine the exact location of the fragmentation. It turned out to be 0x20000—the fragment found previously was a mere 0x4000 long. Worse still, the data after it didn't seem to exist in the image anymore, but I'll circle back to that problem later.
 
-Armed with `.opd`'s function locations and Ghidra, it was possible to figure out what was valid and where it needed to be. I determined there was an 0x28000-wide gap (0x20000 to 0x48000); this extended the total size to the expected amount, 0x2030000, which finally gave me some confidence that the fragment mapping was correct. But now there was a new problem, that of the missing data, and I wasn't sure it was fixable.
+Armed with `.opd`'s function locations and Ghidra, it was possible to figure out what was valid and where it needed to be. I determined there was a 0x28000-wide gap (0x20000 to 0x48000); this extended the total size to the expected amount, 0x2030000, which finally gave me some confidence that the fragment mapping was correct. But now there was a new problem, that of the missing data, and I wasn't sure it was fixable.
 
 # Part 3: Regenerating the code
 
@@ -103,7 +103,7 @@ The sample data proved to be a perfect choice for testing. Using it, I could eas
 
 Technically there could be more, but these are the ones present in the missing data.
 
-I built a small program that reads a file containing PowerPC instructions, breaks them down into their constituent parts, and outputs a new file with the necessary adjustments. The r2-based load instructions proved easy since at least in this block, the change to the value of `D` was a constant 0x3E8.
+I built a small program that reads a file containing PowerPC instructions, breaks them down into their constituent parts, and outputs a new file with the necessary adjustments. The r2-based load instructions proved easy to adjust since at least in this block, the change to the value of `D` is a constant 0x3E8.
 
 Branch instructions were harder to handle. I ended up having to build a map of branch target addresses with the change to `LL` required for the address to be correct in 3/17. Thunks aside, this worked quite well, and only one instruction in the sample data differed from the tool's output (again because of thunking). If the function in question isn't in the map, the tool just uses the value for whatever the one after it is (as long as the one before it is the same—otherwise it terminates).
 
@@ -112,6 +112,18 @@ Branch instructions were harder to handle. I ended up having to build a map of b
 After some trial and error, I got it working and even discovered that the missing 0x8000 from earlier was still on the image and was completely identical to the tool's output. I was delighted about this and took it as confirmation that the tool had done its job. Then, only testing was needed.
 
 # End result
+
+The executable was recreated from the following data:
+| File offset | Length (bytes) | Disk offset |
+| --- | --- | --- |
+| 0x0 | 0x1C000 | 0x40624A000 |
+| 0x1C000 | 0x4000 | 0x41498A000 |
+| 0x20000 | 0x10000 | Rebuilt |
+| 0x30000 | 0x8000 | 0x40A2F2000 |
+| 0x38000 | 0x10000 | Rebuilt |
+| 0x48000 | 0x1FE8000 | 4149AE000 |
+
+Which produced:
 
 ![Blur asserts](/images/blur/blur_assert.png)
 
