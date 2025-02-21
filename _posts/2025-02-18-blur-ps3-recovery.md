@@ -22,7 +22,7 @@ Looking through the search results for both SELF and ELF headers and filtering b
 
 ![2009 search results](/images/blur/2009_search_results.png)
 
-936 of the 988 hits for 2009 are from the one map file still remaining on the drive. The remaining 52 are mostly false positives, filesystem-related paths, and results from the already-recovered 2009-12-15 build, but there are a few unknown sections like these:
+936 of the 988 hits for 2009 are from the one map file remaining on the drive. The remaining 52 are mostly false positives, filesystem-related paths, and results from the already-recovered 2009-12-15 build, but there are a few unknown sections like these:
 
 ![2009 result 1](/images/blur/2009_result_1.png)
 
@@ -40,9 +40,9 @@ Moving on to 2010, there are 260 results. This is skewed by symbols and level fi
 
 The first two are project files for ProDG Debugger, both for `Amax_Speed.self`. Similar project files are present in other recovered builds, for `2010.03.19.2` and `2010.01.11.2`. This indicates that there were 2010-03-13 and 2010-03-17 executables on here at one point. Not that different from the already-recovered 2010-03-19 build, but any potential executables are worth trying for.
 
-The third result is the really interesting one: executable data for 2010-03-17. It looks like this build is the only one that survived, and if there was more than one configuration then the others are gone. (The configuration should be `Speed`, but that'll have to be confirmed later.) That means there's either one recoverable executable or none, so it's time to find out whether this data is part of the SELF seen earlier.
+The third result is the most interesting one: executable data for 2010-03-17. It looks like this build is the only one that survived, and if there was more than one configuration then the others are gone. (The configuration should be `Speed`, but that'll have to be confirmed later.) That means there's either one recoverable executable or none, so it's time to find out whether this data is part of the SELF seen earlier.
 
-## Beginning defragmention
+## Beginning defragmentation
 
 Matching a SELF with its fragments (or vice versa) isn't always straightforward. Normally, there are multiple executables that need to be filtered through, so there'd be lots of searching and comparing sizes/offsets/data/instructions and determining matches through process of elimination and perhaps trial and error. In this case though, with only one SELF header fragment, one executable data fragment, and a debugger project file supporting there being only one in the first place, it's relatively safe to assume they go together. If not, that can be verified later. The question is *where* it goes, and to learn that, the other fragments need to be found.
 
