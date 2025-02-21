@@ -74,7 +74,7 @@ Thanks to the earlier mapping of executable starts, where the start of the 3/19 
 
 Just to confirm my suspicions, I checked the segment extended headers and compared size of the first segment with the actual size of the recovered segment. Sure enough, it was supposed to be 0xFD5978 long but was 0xFCD978 instead, a difference of 0x8000.
 
-In the end, I had to figure out a way to know the function locations in 3-17 without having an intact executable so I could compare those locations with what was actually in the file. And luckily, there was a way.
+In the end, I had to figure out a way to know the function locations in 3/17 without having an intact executable so I could compare those locations with what was actually in the file. And luckily, there was a way.
 
 ## Comparing via .opd
 
